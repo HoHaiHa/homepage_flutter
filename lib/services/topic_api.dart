@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'package:dio/dio.dart';
 import 'package:my_first_app/api/api_client.dart';
 
 class TopicService {
-  final ApiClient _apiClient = ApiClient(Dio());
+  final ApiClient _apiClient = ApiClient();
 
   Future<List<String>> fetchTopics() async {
     try {

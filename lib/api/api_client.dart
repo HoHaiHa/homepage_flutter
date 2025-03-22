@@ -6,15 +6,16 @@ part 'api_client.g.dart';
 
 @RestApi(baseUrl: "https://13ae7061-8b70-40e1-b393-92845f68a909.mock.pstmn.io/")
 abstract class ApiClient {
-  factory ApiClient(Dio dio, {String baseUrl}) = _ApiClient;
+  static ApiClient? _instance;
+
+  factory ApiClient() {
+    _instance ??= _ApiClient(DioInterceptor.createDio());
+    return _instance!;
+  }
 
   @GET("/api/topics")
   Future<String> getTopics();
 
   @GET('/api/news')
   Future<String> getNews();
-}
-
-ApiClient createApiClient() {
-  return ApiClient(DioInterceptor.createDio());
 }

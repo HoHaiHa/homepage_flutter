@@ -1,10 +1,9 @@
 import 'dart:convert';
-import 'package:dio/dio.dart';
 import 'package:my_first_app/api/api_client.dart';
 import 'package:my_first_app/models/news.dart';
 
 class NewsService{
-  final ApiClient _apiClient = ApiClient(Dio());
+  final ApiClient _apiClient = ApiClient();
 
   Future<List<News>> fetchNews() async{
     try{
