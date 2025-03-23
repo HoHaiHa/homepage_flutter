@@ -6,8 +6,11 @@ import 'package:my_first_app/screens/home/home_state.dart';
 import 'package:my_first_app/themes/global_light_theme.dart';
 import 'package:provider/provider.dart';
 
+import 'di/di.dart';
+
 
 void main() {
+  configureDependencies();
   runApp(
     MultiProvider(
       providers: [

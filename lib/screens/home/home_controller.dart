@@ -1,3 +1,4 @@
+import 'package:my_first_app/di/di.dart';
 import 'package:my_first_app/models/news.dart';
 import 'package:my_first_app/services/news_api.dart';
 import 'package:my_first_app/services/topic_api.dart';
@@ -6,8 +7,8 @@ import 'home_state.dart';
 
 class HomePageNotifier extends StateNotifier<HomePageState> with LocatorMixin {
   HomePageNotifier() : super(HomePageState(0,[],[]));
-  final TopicService _topicService = TopicService();
-  final NewsService _newsService = NewsService();
+  final _topicService = getIt<TopicService>();
+  final _newsService = getIt<NewsService>();
 
   List<String> nameOfTopics = [];
   List<News> listNews = [];
